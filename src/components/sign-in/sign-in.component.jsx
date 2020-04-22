@@ -3,6 +3,8 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+
 import './sign-in.styles.scss';
 
 class SignIn extends React.Component {
@@ -16,10 +18,20 @@ class SignIn extends React.Component {
         }
     }
 
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
 
-        this.setState({email: '', password: ''});
+       const { email, password } = this.state;
+
+       try {
+        await auth.signInWithEmailAndPassword(email , password);
+
+        //clear state if sucess
+        this.setState({ email: '', password: ''});
+       }catch (error){
+        console.log(error);
+       }
+
     }
 
     // Reusable by both inputs very good 
@@ -39,11 +51,15 @@ class SignIn extends React.Component {
                 <form onSubmit={this.handleSubmit} >
                     <FormInput label="email" type="email" handleChange={this.handleChange} name="email" value={this.state.email} required />
                     <FormInput label="password" type="password" handleChange={this.handleChange} name="password" value={this.state.password} required />
-                    <CustomButton type="submit">SIGN IN</CustomButton>
+                    
+                    <div className="buttons">
+                        <CustomButton type="submit">Sign In</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
+                    </div>
                 </form>
             </div>
         )
     }
-}
+}  
 
 export default SignIn;
