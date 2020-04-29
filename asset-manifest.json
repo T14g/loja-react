@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/loja-react/static/css/main.b8805d82.chunk.css",
+    "main.js": "/loja-react/static/js/main.55040c91.chunk.js",
+    "main.js.map": "/loja-react/static/js/main.55040c91.chunk.js.map",
+    "runtime-main.js": "/loja-react/static/js/runtime-main.8f9e6f17.js",
+    "runtime-main.js.map": "/loja-react/static/js/runtime-main.8f9e6f17.js.map",
+    "static/js/2.415c90b2.chunk.js": "/loja-react/static/js/2.415c90b2.chunk.js",
+    "static/js/2.415c90b2.chunk.js.map": "/loja-react/static/js/2.415c90b2.chunk.js.map",
+    "index.html": "/loja-react/index.html",
+    "precache-manifest.496c26e1b66e0cfec5356bb33af68f94.js": "/loja-react/precache-manifest.496c26e1b66e0cfec5356bb33af68f94.js",
+    "service-worker.js": "/loja-react/service-worker.js",
+    "static/css/main.b8805d82.chunk.css.map": "/loja-react/static/css/main.b8805d82.chunk.css.map",
+    "static/js/2.415c90b2.chunk.js.LICENSE.txt": "/loja-react/static/js/2.415c90b2.chunk.js.LICENSE.txt",
+    "static/media/crown.ed28accb.svg": "/loja-react/static/media/crown.ed28accb.svg",
+    "static/media/shopping-bag.30f07071.svg": "/loja-react/static/media/shopping-bag.30f07071.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8f9e6f17.js",
+    "static/js/2.415c90b2.chunk.js",
+    "static/css/main.b8805d82.chunk.css",
+    "static/js/main.55040c91.chunk.js"
+  ]
+}
