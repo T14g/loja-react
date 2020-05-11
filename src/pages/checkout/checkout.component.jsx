@@ -43,8 +43,6 @@ const CheckoutPage = ({cartItems, total}) => (
             4242 4242 4242 4242 - Exp 09/20 - CW: 123
         </div>
         
-     
-
         <StripeCheckoutButton price = {total} />
     </div>
 );
