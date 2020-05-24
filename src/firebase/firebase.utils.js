@@ -86,7 +86,7 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 
 
     //O primeiro objecto vazio {}
-    //pega o objecto transfortmed collection, usando o título da coleção => data da coleção
+    //pega o objecto transformed collection, usando o título da coleção => data da coleção
     //adiciona no accumulator cada um desta maneira teremos um objecto onde titulo => data
     return transformedCollection.reduce((accumulator, collection) => {
         accumulator[collection.title.toLowerCase()] = collection;
