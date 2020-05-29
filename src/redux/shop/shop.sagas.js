@@ -1,5 +1,5 @@
 //Listen to every action of a given type
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
 import ShopActionTypes from './shop.types';
 
@@ -28,7 +28,9 @@ export function* fetchCollectionsAsync() {
 export function* fetchCollectionsStart() {
 
     //Just resolve this, nothing more , yeld the result
-    yield takeEvery(
+    //Take latest  because in theory you just want API to fire 1 one
+    //Best option here
+    yield takeLatest(
         ShopActionTypes.FETCH_COLLECTIONS_START,
         fetchCollectionsAsync  
     );
