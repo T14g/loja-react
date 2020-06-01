@@ -12,43 +12,17 @@ import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
+import { checkUserSession } from './redux/user/user.actions';
+
 
 class  App extends React.Component {
 
   unsuscribreFromAuth = null;
 
   componentDidMount() {
-
-
-
-    //will return a function that's when called closes the subscription
-    //Quando o state do auth mudar retorna o objecto userAuth
-    //UserAuth fica na table authentication , qualquer um que logar , e recebe um userID
-    // this.unsuscribreFromAuth = auth.onAuthStateChanged( async userAuth => {
-    //   // this.setState({ currentUser: user});
-
-    //   if(userAuth) {
-
-    //     //Passa esse objecto userAuth para o método que cria o user profile
-    //     const userRef = await createUserProfileDocument(userAuth);
-
-    //     //quando o doc snapshot muda chama o setCurrentUser action para o redux
-    //     userRef.onSnapshot(snapShot =>{
-    //       setCurrentUser({
-    //         id: snapShot.id,
-    //         ...snapShot.data() 
-    //       });
-    //     });
-    //   }
-
-    //   setCurrentUser(userAuth);
-
-    //   //Adds  data to firebase in a bulk
-    //   //Get a new array with what you want using map
-    //   // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})));
-
-    // });
-
+    const { checkUserSession } = this.props;
+    checkUserSession();
+    
   }
 
   //will close the subscription preventind memory leaks
@@ -82,4 +56,8 @@ const mapStateToProps = createStructuredSelector ({
   currentUser : selectCurrentUser
 });
 
-export default connect(mapStateToProps) (App);
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
