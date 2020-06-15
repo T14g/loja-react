@@ -17,17 +17,10 @@ import { checkUserSession } from './redux/user/user.actions';
 
 class  App extends React.Component {
 
-  unsuscribreFromAuth = null;
-
   componentDidMount() {
     const { checkUserSession } = this.props;
     checkUserSession();
     
-  }
-
-  //will close the subscription preventind memory leaks
-  componentWillUnmount() {
-    this.unsuscribreFromAuth();
   }
 
   render() {
