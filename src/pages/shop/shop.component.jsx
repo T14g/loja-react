@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -9,23 +9,20 @@ import CollectionPageContainer from '../collection/collection.component.containe
 
 
 
-class ShopPage extends React.Component{
+const ShopPage = ({fetchCollectionsStart, match}) => {
     
-    componentDidMount() {
-        const { fetchCollectionsStart} = this.props;
+    useEffect(() => {
         fetchCollectionsStart();
-    }
+    },[ fetchCollectionsStart ]); //only if this changes <<< , empty array does same but with warning
+    
 
-    render() {
-        const { match } = this.props;
-
-        return(
-            <div className='shop-page'>
-                <Route exact path={`${match.path}`} component={CollectionsOverViewContainer} />
-                <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer} />} />
-            </div>
-        )
-    }
+    return(
+        <div className='shop-page'>
+            <Route exact path={`${match.path}`} component={CollectionsOverViewContainer} />
+            <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer} />
+        </div>
+    )
+    
 }
 
 
